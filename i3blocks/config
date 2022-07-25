@@ -1,0 +1,51 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+
+# Global properties
+separator=true
+separator_block_width=15
+
+[pacman-updates]
+command=arch-update/arch-update
+markup=pango
+interval= 3600
+UPDATE_COLOR=#FFFF85
+LABEL=upd: 
+
+[disk_root]
+label=disk: 
+instance=/
+interval=30
+command=disk_usage/disk_usage format="{used:.1f}G / {total:.1f}G"
+
+[cpu_usage]
+command=cpu_usage/cpu_usage
+interval=10
+LABEL=cpu: 
+min_width=CPU: 100.00%
+T_WARN=50
+T_CRIT=80
+DECIMALS=2
+COLOR_NORMAL=#EBDBB2
+COLOR_WARN=#FFFC00
+COLOR_CRIT=#FF0000
+
+[memory]
+command=memory/memory
+label=mem: 
+interval=30
+
+[time]
+command=date '+%Y-%m-%d %H:%M:%S'
+interval=1
+
+[volume]
+command=volume/volume
+LABEL=vol: 
+interval=1
+signal=10
